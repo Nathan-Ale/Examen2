@@ -9,8 +9,8 @@ WORKDIR /app
 # 2do error identificado, es mejor copiar solo los archivos necesarios para instalar las dependencias primero, como package.json y package-lock.json, en lugar de copiar todo el código fuente de inmediato. Esto permite aprovechar la caché de Docker para las capas de instalación de dependencias.  
 COPY package*.json ./
 
-# 3er error identificado, es mejor usar "npm ci" en lugar de "npm install" para instalar las dependencias en un entorno de producción, ya que garantiza que se instalen exactamente las versiones especificadas en package-lock.json. Además, se debe agregar la opción "--only=production" para evitar instalar dependencias de desarrollo.
-RUN npm ci --only=production
+# 3er error identificado es que se está instalando todas las dependencias, incluyendo las de desarrollo, lo cual no es necesario para ejecutar la aplicación en producción. Es mejor usar "npm install --only=production" para instalar solo las dependencias necesarias para ejecutar la aplicación. 
+RUN npm install --only=production
 
 # Copia el resto del código fuente
 COPY . .
