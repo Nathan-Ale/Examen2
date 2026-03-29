@@ -1,14 +1,22 @@
-# Proyecto con CI/CD Pipeline
-
 ## Evidencia de Deployment
 
-### Pipeline CI
-![CI Pipeline](screenshots/ci-pipeline.png)
+### CI Pipeline - Integración Continua
+![CI Pipeline](screenshots/ci-pipeline-success.png)
 
-### Pipeline CD
-![CD Pipeline](screenshots/cd-pipeline.png)
+### CD Pipeline - Entrega Continua (Docker Hub)
+![CD Pipeline](screenshots/cd-pipeline-success.png)
 
-### Deployment exitoso a Vercel
+### Imagen en Docker Hub
+![Docker Hub](screenshots/docker-hub.png)
+
+**Link:** [https://hub.docker.com/u/nathanalegria](https://hub.docker.com/u/nathanalegria)
+
+La imagen `nathanalegria/myapp` está disponible con las siguientes etiquetas:
+- `latest` - Última versión
+- `[commit-sha]` - Versión específica por commit
+
+### Despliegue Exitoso
+El pipeline CD se ejecuta automáticamente al hacer push a la rama `main`, construyendo la imagen Docker y subiéndola a Docker Hub.
 https://mi-proyecto.vercel.app
 
 ## Configuración del Proyecto
